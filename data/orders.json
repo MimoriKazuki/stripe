@@ -1,18 +1,231 @@
 {
   "orders": [
     {
-      "stripeSessionId": "cs_test_a1CXNnFH40lHL1PuMjtfMxFSX9Q4tMxWelpcb6hdR7txhxYq370XniO9AE",
-      "customerEmail": "",
-      "items": [],
-      "total": 3000,
+      "id": "order_1756200001",
+      "orderNumber": "ORD-000001",
+      "stripeSessionId": "cs_test_1",
+      "customerEmail": "yamada@example.com",
+      "customerName": "山田 太郎",
+      "customerPhone": "090-1234-5678",
+      "shippingAddress": {
+        "line1": "渋谷1-2-3",
+        "line2": "渋谷ビル10F",
+        "city": "渋谷区",
+        "state": "東京都",
+        "postal_code": "150-0002",
+        "country": "JP"
+      },
+      "billingAddress": {
+        "line1": "渋谷1-2-3",
+        "line2": "渋谷ビル10F",
+        "city": "渋谷区",
+        "state": "東京都",
+        "postal_code": "150-0002",
+        "country": "JP"
+      },
+      "shippingOption": "standard",
+      "shippingCost": 500,
+      "items": [
+        {
+          "productId": "prod_1",
+          "productName": "プレミアムTシャツ",
+          "quantity": 2,
+          "price": 3500
+        },
+        {
+          "productId": "prod_2",
+          "productName": "デザイナーマグカップ",
+          "quantity": 1,
+          "price": 2000
+        }
+      ],
+      "total": 9500,
       "status": "completed",
-      "id": "order_1756106580746",
-      "createdAt": "2025-08-25T07:23:00.746Z",
-      "updatedAt": "2025-08-25T07:23:00.746Z"
+      "paymentStatus": "paid",
+      "fulfillmentStatus": "delivered",
+      "trackingNumber": "1234567890",
+      "trackingUrl": "https://toi.kuronekoyamato.co.jp/cgi-bin/tneko?init&q=1234567890",
+      "shippingCarrier": "yamato",
+      "estimatedDelivery": "2025-08-25T10:00:00.000Z",
+      "actualDelivery": "2025-08-24T14:30:00.000Z",
+      "lastShippingUpdate": "2025-08-24T14:30:00.000Z",
+      "shippingHistory": [
+        {
+          "timestamp": "2025-08-22T09:00:00.000Z",
+          "status": "processing",
+          "description": "注文の処理を開始しました",
+          "performedBy": "System"
+        },
+        {
+          "timestamp": "2025-08-22T15:00:00.000Z",
+          "status": "ready_to_ship",
+          "description": "商品の梱包が完了しました",
+          "performedBy": "倉庫スタッフ"
+        },
+        {
+          "timestamp": "2025-08-23T08:00:00.000Z",
+          "status": "shipped",
+          "description": "商品を発送しました",
+          "location": "東京配送センター",
+          "performedBy": "配送スタッフ"
+        },
+        {
+          "timestamp": "2025-08-24T09:00:00.000Z",
+          "status": "out_for_delivery",
+          "description": "配達員が商品を持って配達に向かっています",
+          "location": "渋谷営業所",
+          "performedBy": "配達員"
+        },
+        {
+          "timestamp": "2025-08-24T14:30:00.000Z",
+          "status": "delivered",
+          "description": "配達が完了しました",
+          "location": "渋谷区",
+          "performedBy": "配達員"
+        }
+      ],
+      "createdAt": "2025-08-22T08:00:00.000Z",
+      "updatedAt": "2025-08-24T14:30:00.000Z"
     },
     {
-      "stripeSessionId": "cs_test_a14FNeq2bFcv3HL6WHKr91GRWZL1DODbJ5FAVXGIkHplmS5lwPD7WMXOMj",
-      "customerEmail": "",
+      "id": "order_1756200002",
+      "orderNumber": "ORD-000002",
+      "stripeSessionId": "cs_test_2",
+      "customerEmail": "sato@example.com",
+      "customerName": "佐藤 花子",
+      "customerPhone": "080-2345-6789",
+      "shippingAddress": {
+        "line1": "中央町3-4-5",
+        "city": "千代田区",
+        "state": "東京都",
+        "postal_code": "100-0001",
+        "country": "JP"
+      },
+      "shippingOption": "express",
+      "shippingCost": 1000,
+      "items": [
+        {
+          "productId": "prod_3",
+          "productName": "ノートブック",
+          "quantity": 3,
+          "price": 1500
+        }
+      ],
+      "total": 5500,
+      "status": "completed",
+      "paymentStatus": "paid",
+      "fulfillmentStatus": "out_for_delivery",
+      "trackingNumber": "5678901234",
+      "trackingUrl": "https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo=5678901234",
+      "shippingCarrier": "sagawa",
+      "estimatedDelivery": "2025-08-25T18:00:00.000Z",
+      "lastShippingUpdate": "2025-08-25T09:00:00.000Z",
+      "shippingHistory": [
+        {
+          "timestamp": "2025-08-24T10:00:00.000Z",
+          "status": "processing",
+          "description": "注文の処理を開始しました",
+          "performedBy": "System"
+        },
+        {
+          "timestamp": "2025-08-24T14:00:00.000Z",
+          "status": "ready_to_ship",
+          "description": "商品の梱包が完了しました",
+          "performedBy": "倉庫スタッフ"
+        },
+        {
+          "timestamp": "2025-08-24T16:00:00.000Z",
+          "status": "shipped",
+          "description": "商品を発送しました（速達）",
+          "location": "東京配送センター",
+          "performedBy": "配送スタッフ"
+        },
+        {
+          "timestamp": "2025-08-25T09:00:00.000Z",
+          "status": "out_for_delivery",
+          "description": "配達員が商品を持って配達に向かっています",
+          "location": "千代田営業所",
+          "performedBy": "配達員"
+        }
+      ],
+      "createdAt": "2025-08-24T09:30:00.000Z",
+      "updatedAt": "2025-08-25T09:00:00.000Z"
+    },
+    {
+      "id": "order_1756200003",
+      "orderNumber": "ORD-000003",
+      "stripeSessionId": "cs_test_3",
+      "customerEmail": "tanaka@example.com",
+      "customerName": "田中 一郎",
+      "customerPhone": "070-3456-7890",
+      "shippingAddress": {
+        "line1": "港南2-15-1",
+        "line2": "品川インターシティA棟",
+        "city": "港区",
+        "state": "東京都",
+        "postal_code": "108-0075",
+        "country": "JP"
+      },
+      "shippingOption": "standard",
+      "shippingCost": 500,
+      "items": [
+        {
+          "productId": "prod_4",
+          "productName": "エコバッグ",
+          "quantity": 5,
+          "price": 1200
+        }
+      ],
+      "total": 6500,
+      "status": "completed",
+      "paymentStatus": "paid",
+      "fulfillmentStatus": "shipped",
+      "trackingNumber": "9012345678",
+      "trackingUrl": "https://trackings.post.japanpost.jp/services/srv/search/?requestNo1=9012345678",
+      "shippingCarrier": "jppost",
+      "estimatedDelivery": "2025-08-27T18:00:00.000Z",
+      "lastShippingUpdate": "2025-08-25T10:00:00.000Z",
+      "shippingHistory": [
+        {
+          "timestamp": "2025-08-23T11:00:00.000Z",
+          "status": "processing",
+          "description": "注文の処理を開始しました",
+          "performedBy": "System"
+        },
+        {
+          "timestamp": "2025-08-24T09:00:00.000Z",
+          "status": "ready_to_ship",
+          "description": "商品の梱包が完了しました",
+          "performedBy": "倉庫スタッフ"
+        },
+        {
+          "timestamp": "2025-08-25T10:00:00.000Z",
+          "status": "shipped",
+          "description": "商品を発送しました",
+          "location": "東京配送センター",
+          "carrierStatus": "引受",
+          "performedBy": "配送スタッフ"
+        }
+      ],
+      "createdAt": "2025-08-23T10:30:00.000Z",
+      "updatedAt": "2025-08-25T10:00:00.000Z"
+    },
+    {
+      "id": "order_1756200004",
+      "orderNumber": "ORD-000004",
+      "stripeSessionId": "cs_test_4",
+      "customerEmail": "suzuki@example.com",
+      "customerName": "鈴木 美香",
+      "customerPhone": "090-4567-8901",
+      "shippingAddress": {
+        "line1": "北区王子1-2-3",
+        "city": "北区",
+        "state": "東京都",
+        "postal_code": "114-0002",
+        "country": "JP"
+      },
+      "shippingOption": "standard",
+      "shippingCost": 500,
       "items": [
         {
           "productId": "prod_1",
@@ -21,62 +234,344 @@
           "price": 3500
         }
       ],
-      "total": 3500,
+      "total": 4000,
       "status": "completed",
-      "id": "order_1756106800901",
-      "createdAt": "2025-08-25T07:26:40.901Z",
-      "updatedAt": "2025-08-25T07:26:40.901Z"
+      "paymentStatus": "paid",
+      "fulfillmentStatus": "delivery_failed",
+      "trackingNumber": "1234567891",
+      "trackingUrl": "https://toi.kuronekoyamato.co.jp/cgi-bin/tneko?init&q=1234567891",
+      "shippingCarrier": "yamato",
+      "estimatedDelivery": "2025-08-25T18:00:00.000Z",
+      "lastShippingUpdate": "2025-08-25T16:00:00.000Z",
+      "shippingHistory": [
+        {
+          "timestamp": "2025-08-24T08:00:00.000Z",
+          "status": "processing",
+          "description": "注文の処理を開始しました",
+          "performedBy": "System"
+        },
+        {
+          "timestamp": "2025-08-24T12:00:00.000Z",
+          "status": "ready_to_ship",
+          "description": "商品の梱包が完了しました",
+          "performedBy": "倉庫スタッフ"
+        },
+        {
+          "timestamp": "2025-08-24T15:00:00.000Z",
+          "status": "shipped",
+          "description": "商品を発送しました",
+          "location": "東京配送センター",
+          "performedBy": "配送スタッフ"
+        },
+        {
+          "timestamp": "2025-08-25T10:00:00.000Z",
+          "status": "out_for_delivery",
+          "description": "配達員が商品を持って配達に向かっています",
+          "location": "北区営業所",
+          "performedBy": "配達員"
+        },
+        {
+          "timestamp": "2025-08-25T16:00:00.000Z",
+          "status": "delivery_failed",
+          "description": "ご不在のため持ち帰りました",
+          "location": "北区営業所",
+          "carrierStatus": "持戻（ご不在）",
+          "performedBy": "配達員"
+        }
+      ],
+      "notes": "再配達調整中",
+      "createdAt": "2025-08-24T07:30:00.000Z",
+      "updatedAt": "2025-08-25T16:00:00.000Z"
     },
     {
-      "stripeSessionId": "cs_test_a1A1RlqXo7ZvjDm6cJ7QylYG9FTb37MJFn07o3FeyVgkB1UDXET8lfjFPw",
-      "customerEmail": "",
+      "id": "order_1756200005",
+      "orderNumber": "ORD-000005",
+      "stripeSessionId": "cs_test_5",
+      "customerEmail": "kimura@example.com",
+      "customerName": "木村 健太",
+      "shippingAddress": {
+        "line1": "新宿3-1-13",
+        "city": "新宿区",
+        "state": "東京都",
+        "postal_code": "160-0022",
+        "country": "JP"
+      },
+      "shippingOption": "standard",
+      "shippingCost": 500,
+      "items": [
+        {
+          "productId": "prod_2",
+          "productName": "デザイナーマグカップ",
+          "quantity": 2,
+          "price": 2000
+        }
+      ],
+      "total": 4500,
+      "status": "completed",
+      "paymentStatus": "paid",
+      "fulfillmentStatus": "ready_to_ship",
+      "lastShippingUpdate": "2025-08-25T11:00:00.000Z",
+      "shippingHistory": [
+        {
+          "timestamp": "2025-08-25T08:00:00.000Z",
+          "status": "processing",
+          "description": "注文の処理を開始しました",
+          "performedBy": "System"
+        },
+        {
+          "timestamp": "2025-08-25T11:00:00.000Z",
+          "status": "ready_to_ship",
+          "description": "商品の梱包が完了しました",
+          "location": "東京倉庫",
+          "performedBy": "倉庫スタッフ"
+        }
+      ],
+      "createdAt": "2025-08-25T07:45:00.000Z",
+      "updatedAt": "2025-08-25T11:00:00.000Z"
+    },
+    {
+      "id": "order_1756200006",
+      "orderNumber": "ORD-000006",
+      "stripeSessionId": "cs_test_6",
+      "customerEmail": "watanabe@example.com",
+      "customerName": "渡辺 真理",
+      "customerPhone": "080-5678-9012",
+      "shippingAddress": {
+        "line1": "横浜市中区山下町1-1",
+        "city": "横浜市中区",
+        "state": "神奈川県",
+        "postal_code": "231-0023",
+        "country": "JP"
+      },
+      "shippingOption": "standard",
+      "shippingCost": 500,
+      "items": [
+        {
+          "productId": "prod_3",
+          "productName": "ノートブック",
+          "quantity": 1,
+          "price": 1500
+        },
+        {
+          "productId": "prod_4",
+          "productName": "エコバッグ",
+          "quantity": 2,
+          "price": 1200
+        }
+      ],
+      "total": 4400,
+      "status": "processing",
+      "paymentStatus": "paid",
+      "fulfillmentStatus": "processing",
+      "lastShippingUpdate": "2025-08-25T12:00:00.000Z",
+      "shippingHistory": [
+        {
+          "timestamp": "2025-08-25T12:00:00.000Z",
+          "status": "processing",
+          "description": "注文の処理を開始しました",
+          "performedBy": "System"
+        }
+      ],
+      "createdAt": "2025-08-25T11:30:00.000Z",
+      "updatedAt": "2025-08-25T12:00:00.000Z"
+    },
+    {
+      "id": "order_1756200007",
+      "orderNumber": "ORD-000007",
+      "stripeSessionId": "cs_test_7",
+      "customerEmail": "ito@example.com",
+      "customerName": "伊藤 光",
+      "customerPhone": "070-6789-0123",
+      "shippingAddress": {
+        "line1": "大阪市北区梅田1-1-3",
+        "city": "大阪市北区",
+        "state": "大阪府",
+        "postal_code": "530-0001",
+        "country": "JP"
+      },
+      "shippingOption": "standard",
+      "shippingCost": 1000,
       "items": [
         {
           "productId": "prod_1",
           "productName": "プレミアムTシャツ",
-          "quantity": 1,
+          "quantity": 3,
           "price": 3500
         }
       ],
-      "total": 3500,
-      "status": "completed",
-      "id": "order_1756108377317",
-      "createdAt": "2025-08-25T07:52:57.317Z",
-      "updatedAt": "2025-08-25T07:52:57.317Z"
+      "total": 11500,
+      "status": "cancelled",
+      "paymentStatus": "refunded",
+      "fulfillmentStatus": "cancelled",
+      "lastShippingUpdate": "2025-08-23T15:00:00.000Z",
+      "shippingHistory": [
+        {
+          "timestamp": "2025-08-23T10:00:00.000Z",
+          "status": "processing",
+          "description": "注文の処理を開始しました",
+          "performedBy": "System"
+        },
+        {
+          "timestamp": "2025-08-23T15:00:00.000Z",
+          "status": "cancelled",
+          "description": "お客様のご要望により注文をキャンセルしました",
+          "performedBy": "カスタマーサポート"
+        }
+      ],
+      "notes": "顧客都合によるキャンセル",
+      "createdAt": "2025-08-23T09:45:00.000Z",
+      "updatedAt": "2025-08-23T15:00:00.000Z"
     },
     {
-      "stripeSessionId": "cs_test_a1w6TW1zg6hYE4YVH4PIiH3sbvLkfd8T8uUbePL0IeEkk6u6GIMBQX7fuB",
-      "customerEmail": "",
+      "id": "order_1756200008",
+      "orderNumber": "ORD-000008",
+      "stripeSessionId": "cs_test_8",
+      "customerEmail": "yamada@example.com",
+      "customerName": "山田 太郎",
+      "customerPhone": "090-1234-5678",
+      "shippingAddress": {
+        "line1": "渋谷1-2-3",
+        "line2": "渋谷ビル10F",
+        "city": "渋谷区",
+        "state": "東京都",
+        "postal_code": "150-0002",
+        "country": "JP"
+      },
+      "shippingOption": "standard",
+      "shippingCost": 500,
+      "items": [
+        {
+          "productId": "prod_2",
+          "productName": "デザイナーマグカップ",
+          "quantity": 1,
+          "price": 2000
+        }
+      ],
+      "total": 2500,
+      "status": "refunded",
+      "paymentStatus": "refunded",
+      "fulfillmentStatus": "returned",
+      "trackingNumber": "1234567892",
+      "trackingUrl": "https://toi.kuronekoyamato.co.jp/cgi-bin/tneko?init&q=1234567892",
+      "shippingCarrier": "yamato",
+      "actualDelivery": "2025-08-20T14:00:00.000Z",
+      "lastShippingUpdate": "2025-08-23T10:00:00.000Z",
+      "shippingHistory": [
+        {
+          "timestamp": "2025-08-18T09:00:00.000Z",
+          "status": "processing",
+          "description": "注文の処理を開始しました",
+          "performedBy": "System"
+        },
+        {
+          "timestamp": "2025-08-18T14:00:00.000Z",
+          "status": "ready_to_ship",
+          "description": "商品の梱包が完了しました",
+          "performedBy": "倉庫スタッフ"
+        },
+        {
+          "timestamp": "2025-08-19T08:00:00.000Z",
+          "status": "shipped",
+          "description": "商品を発送しました",
+          "location": "東京配送センター",
+          "performedBy": "配送スタッフ"
+        },
+        {
+          "timestamp": "2025-08-20T09:00:00.000Z",
+          "status": "out_for_delivery",
+          "description": "配達員が商品を持って配達に向かっています",
+          "location": "渋谷営業所",
+          "performedBy": "配達員"
+        },
+        {
+          "timestamp": "2025-08-20T14:00:00.000Z",
+          "status": "delivered",
+          "description": "配達が完了しました",
+          "location": "渋谷区",
+          "performedBy": "配達員"
+        },
+        {
+          "timestamp": "2025-08-22T10:00:00.000Z",
+          "status": "returned",
+          "description": "商品が返品されました",
+          "location": "返品センター",
+          "performedBy": "返品処理スタッフ"
+        },
+        {
+          "timestamp": "2025-08-23T10:00:00.000Z",
+          "status": "refunded",
+          "description": "返金処理が完了しました",
+          "performedBy": "経理部"
+        }
+      ],
+      "notes": "商品不良による返品",
+      "createdAt": "2025-08-18T08:30:00.000Z",
+      "updatedAt": "2025-08-23T10:00:00.000Z"
+    },
+    {
+      "id": "order_1756200009",
+      "orderNumber": "ORD-000009",
+      "stripeSessionId": "cs_test_9",
+      "customerEmail": "tanaka@example.com",
+      "customerName": "田中 一郎",
+      "customerPhone": "070-3456-7890",
+      "shippingAddress": {
+        "line1": "港南2-15-1",
+        "line2": "品川インターシティA棟",
+        "city": "港区",
+        "state": "東京都",
+        "postal_code": "108-0075",
+        "country": "JP"
+      },
+      "shippingOption": "express",
+      "shippingCost": 1000,
       "items": [
         {
           "productId": "prod_1",
           "productName": "プレミアムTシャツ",
-          "quantity": 1,
+          "quantity": 10,
           "price": 3500
         }
       ],
-      "total": 3500,
-      "status": "completed",
-      "id": "order_1756108721041",
-      "createdAt": "2025-08-25T07:58:41.041Z",
-      "updatedAt": "2025-08-25T07:58:41.041Z"
+      "total": 36000,
+      "status": "pending",
+      "paymentStatus": "paid",
+      "fulfillmentStatus": "unfulfilled",
+      "notes": "法人大量注文",
+      "createdAt": "2025-08-25T13:00:00.000Z",
+      "updatedAt": "2025-08-25T13:00:00.000Z"
     },
     {
-      "stripeSessionId": "cs_test_a1TBeOr9yVZNNlrhAvRXINv2zItDaY9hGXus9pWX8kDZl4nA9mZZgoqjNI",
-      "customerEmail": "",
+      "id": "order_1756200010",
+      "orderNumber": "ORD-000010",
+      "stripeSessionId": "cs_test_10",
+      "customerEmail": "sato@example.com",
+      "customerName": "佐藤 花子",
+      "customerPhone": "080-2345-6789",
+      "shippingAddress": {
+        "line1": "中央町3-4-5",
+        "city": "千代田区",
+        "state": "東京都",
+        "postal_code": "100-0001",
+        "country": "JP"
+      },
+      "shippingOption": "overnight",
+      "shippingCost": 2000,
       "items": [
         {
-          "productId": "prod_1",
-          "productName": "プレミアムTシャツ",
+          "productId": "prod_4",
+          "productName": "エコバッグ",
           "quantity": 1,
-          "price": 3500
+          "price": 1200
         }
       ],
-      "total": 3500,
-      "status": "completed",
-      "id": "order_1756109047335",
-      "createdAt": "2025-08-25T08:04:07.335Z",
-      "updatedAt": "2025-08-25T08:04:07.335Z"
+      "total": 3200,
+      "status": "pending",
+      "paymentStatus": "pending",
+      "fulfillmentStatus": "unfulfilled",
+      "notes": "翌日配送希望",
+      "createdAt": "2025-08-25T14:00:00.000Z",
+      "updatedAt": "2025-08-25T14:00:00.000Z"
     }
   ]
 }

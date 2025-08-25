@@ -51,12 +51,21 @@ export interface Order {
   total: number;
   status: 'pending' | 'processing' | 'completed' | 'failed' | 'cancelled' | 'refunded';
   paymentStatus: 'pending' | 'paid' | 'failed' | 'refunded';
-  fulfillmentStatus: 'unfulfilled' | 'partially_fulfilled' | 'fulfilled' | 'shipped' | 'delivered' | 'returned';
+  fulfillmentStatus: 'unfulfilled' | 'processing' | 'ready_to_ship' | 'shipped' | 'out_for_delivery' | 'delivered' | 'delivery_failed' | 'returned' | 'cancelled' | 'refunded';
   trackingNumber?: string;
   trackingUrl?: string;
   shippingCarrier?: string;
   estimatedDelivery?: string;
   actualDelivery?: string;
+  lastShippingUpdate?: string;
+  shippingHistory?: Array<{
+    timestamp: string;
+    status: string;
+    description: string;
+    location?: string;
+    carrierStatus?: string;
+    performedBy?: string;
+  }>;
   notes?: string;
   tags?: string[];
   discountCode?: string;
@@ -183,6 +192,11 @@ export async function updateOrder(id: string, updates: Partial<Order>): Promise<
 export async function getOrderBySessionId(sessionId: string): Promise<Order | null> {
   const orders = await getOrders();
   return orders.find(o => o.stripeSessionId === sessionId) || null;
+}
+
+export async function getOrder(id: string): Promise<Order | null> {
+  const orders = await getOrders();
+  return orders.find(o => o.id === id) || null;
 }
 
 // Customer Management

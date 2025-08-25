@@ -113,7 +113,7 @@ export async function POST(req: NextRequest) {
         console.log(`Customer auto-registered/updated: ${customerEmail}`);
       }
       
-      // 注文を作成
+      // 注文を作成（初期配送履歴を含む）
       const order = await createOrder({
         stripeSessionId: session.id,
         customerEmail: customerDetails?.email || session.customer_email || '',
@@ -142,6 +142,13 @@ export async function POST(req: NextRequest) {
         status: 'completed',
         paymentStatus: 'paid',
         fulfillmentStatus: 'unfulfilled',
+        shippingHistory: [{
+          timestamp: new Date().toISOString(),
+          status: 'unfulfilled',
+          description: '注文を受け付けました',
+          performedBy: 'System'
+        }],
+        lastShippingUpdate: new Date().toISOString()
       });
 
       console.log('Order created:', order.id);
