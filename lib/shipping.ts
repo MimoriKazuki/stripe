@@ -16,16 +16,16 @@ export const FULFILLMENT_STATUS_FLOW = {
 
 // 配送ステータスの詳細定義
 export const FULFILLMENT_STATUS_DETAILS = {
-  'unfulfilled': { label: '未処理', color: 'gray', icon: '📦' },
-  'processing': { label: '処理中', color: 'yellow', icon: '⚙️' },
-  'ready_to_ship': { label: '発送準備完了', color: 'blue', icon: '📋' },
-  'shipped': { label: '発送済み', color: 'purple', icon: '🚚' },
-  'out_for_delivery': { label: '配達中', color: 'indigo', icon: '🚛' },
-  'delivered': { label: '配達完了', color: 'green', icon: '✅' },
-  'delivery_failed': { label: '配達失敗', color: 'red', icon: '❌' },
-  'returned': { label: '返品', color: 'orange', icon: '↩️' },
-  'cancelled': { label: 'キャンセル', color: 'gray', icon: '🚫' },
-  'refunded': { label: '返金済み', color: 'gray', icon: '💰' }
+  'unfulfilled': { label: '未処理', color: 'gray' },
+  'processing': { label: '処理中', color: 'yellow' },
+  'ready_to_ship': { label: '発送準備完了', color: 'blue' },
+  'shipped': { label: '発送済み', color: 'purple' },
+  'out_for_delivery': { label: '配達中', color: 'indigo' },
+  'delivered': { label: '配達完了', color: 'green' },
+  'delivery_failed': { label: '配達失敗', color: 'red' },
+  'returned': { label: '返品', color: 'orange' },
+  'cancelled': { label: 'キャンセル', color: 'gray' },
+  'refunded': { label: '返金済み', color: 'gray' }
 };
 
 // 配送業者の設定
@@ -33,20 +33,17 @@ export const SHIPPING_CARRIERS = {
   'yamato': {
     name: 'ヤマト運輸',
     trackingUrlTemplate: 'https://toi.kuronekoyamato.co.jp/cgi-bin/tneko?init&q={tracking}',
-    estimatedDays: { standard: 2, express: 1 },
-    logo: '🐈'
+    estimatedDays: { standard: 2, express: 1 }
   },
   'sagawa': {
     name: '佐川急便',
     trackingUrlTemplate: 'https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo={tracking}',
-    estimatedDays: { standard: 3, express: 1 },
-    logo: '🚚'
+    estimatedDays: { standard: 3, express: 1 }
   },
   'jppost': {
     name: '日本郵便',
     trackingUrlTemplate: 'https://trackings.post.japanpost.jp/services/srv/search/?requestNo1={tracking}',
-    estimatedDays: { standard: 3, express: 2 },
-    logo: '📮'
+    estimatedDays: { standard: 3, express: 2 }
   }
 };
 

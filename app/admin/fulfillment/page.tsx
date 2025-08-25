@@ -26,16 +26,16 @@ import {
 // Constants that were previously imported from shipping.ts
 // Moved here to avoid fs module usage in client component
 const FULFILLMENT_STATUS_DETAILS = {
-  'unfulfilled': { label: '未処理', color: 'gray', icon: '📦' },
-  'processing': { label: '処理中', color: 'yellow', icon: '⚙️' },
-  'ready_to_ship': { label: '発送準備完了', color: 'blue', icon: '📋' },
-  'shipped': { label: '発送済み', color: 'purple', icon: '🚚' },
-  'out_for_delivery': { label: '配達中', color: 'indigo', icon: '🚛' },
-  'delivered': { label: '配達完了', color: 'green', icon: '✅' },
-  'delivery_failed': { label: '配達失敗', color: 'red', icon: '❌' },
-  'returned': { label: '返品', color: 'orange', icon: '↩️' },
-  'cancelled': { label: 'キャンセル', color: 'gray', icon: '🚫' },
-  'refunded': { label: '返金済み', color: 'gray', icon: '💰' }
+  'unfulfilled': { label: '未処理', color: 'gray' },
+  'processing': { label: '処理中', color: 'yellow' },
+  'ready_to_ship': { label: '発送準備完了', color: 'blue' },
+  'shipped': { label: '発送済み', color: 'purple' },
+  'out_for_delivery': { label: '配達中', color: 'indigo' },
+  'delivered': { label: '配達完了', color: 'green' },
+  'delivery_failed': { label: '配達失敗', color: 'red' },
+  'returned': { label: '返品', color: 'orange' },
+  'cancelled': { label: 'キャンセル', color: 'gray' },
+  'refunded': { label: '返金済み', color: 'gray' }
 };
 
 const FULFILLMENT_STATUS_FLOW = {
@@ -55,20 +55,17 @@ const SHIPPING_CARRIERS = {
   'yamato': {
     name: 'ヤマト運輸',
     trackingUrlTemplate: 'https://toi.kuronekoyamato.co.jp/cgi-bin/tneko?init&q={tracking}',
-    estimatedDays: { standard: 2, express: 1 },
-    logo: '🐈'
+    estimatedDays: { standard: 2, express: 1 }
   },
   'sagawa': {
     name: '佐川急便',
     trackingUrlTemplate: 'https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo={tracking}',
-    estimatedDays: { standard: 3, express: 1 },
-    logo: '🚚'
+    estimatedDays: { standard: 3, express: 1 }
   },
   'jppost': {
     name: '日本郵便',
     trackingUrlTemplate: 'https://trackings.post.japanpost.jp/services/srv/search/?requestNo1={tracking}',
-    estimatedDays: { standard: 3, express: 2 },
-    logo: '📮'
+    estimatedDays: { standard: 3, express: 2 }
   }
 };
 
@@ -226,56 +223,56 @@ export default function FulfillmentPage() {
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-600">未処理</span>
-              <span className="text-xl">📦</span>
+              <Package className="w-4 h-4 text-gray-400" />
             </div>
             <div className="text-xl font-bold">{stats.unfulfilled || 0}</div>
           </div>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-600">処理中</span>
-              <span className="text-xl">⚙️</span>
+              <Clock className="w-4 h-4 text-gray-400" />
             </div>
             <div className="text-xl font-bold">{stats.processing || 0}</div>
           </div>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-600">発送準備</span>
-              <span className="text-xl">📋</span>
+              <Package className="w-4 h-4 text-blue-400" />
             </div>
             <div className="text-xl font-bold">{stats.ready_to_ship || 0}</div>
           </div>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-600">発送済み</span>
-              <span className="text-xl">🚚</span>
+              <Truck className="w-4 h-4 text-purple-400" />
             </div>
             <div className="text-xl font-bold">{stats.shipped || 0}</div>
           </div>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-600">配達中</span>
-              <span className="text-xl">🚛</span>
+              <Truck className="w-4 h-4 text-indigo-400" />
             </div>
             <div className="text-xl font-bold">{stats.out_for_delivery || 0}</div>
           </div>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-600">配達完了</span>
-              <span className="text-xl">✅</span>
+              <CheckCircle className="w-4 h-4 text-green-400" />
             </div>
             <div className="text-xl font-bold">{stats.delivered || 0}</div>
           </div>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-600">配達失敗</span>
-              <span className="text-xl">❌</span>
+              <AlertCircle className="w-4 h-4 text-red-400" />
             </div>
             <div className="text-xl font-bold">{stats.delivery_failed || 0}</div>
           </div>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs text-gray-600">返品</span>
-              <span className="text-xl">↩️</span>
+              <Package className="w-4 h-4 text-orange-400" />
             </div>
             <div className="text-xl font-bold">{stats.returned || 0}</div>
           </div>
@@ -353,12 +350,9 @@ export default function FulfillmentPage() {
                     </td>
                     <td className="px-6 py-4">
                       {statusInfo && (
-                        <div className="flex items-center gap-2">
-                          <span className="text-lg">{statusInfo.icon}</span>
-                          <span className={`px-2 py-1 text-xs rounded-full bg-${statusInfo.color}-100 text-${statusInfo.color}-800`}>
-                            {statusInfo.label}
-                          </span>
-                        </div>
+                        <span className={`px-2 py-1 text-xs rounded-full bg-${statusInfo.color}-100 text-${statusInfo.color}-800`}>
+                          {statusInfo.label}
+                        </span>
                       )}
                     </td>
                     <td className="px-6 py-4">
@@ -578,17 +572,14 @@ export default function FulfillmentPage() {
                           <div className="ml-16 flex-1">
                             <div className="flex items-center gap-2 mb-1">
                               {statusInfo && (
-                                <>
-                                  <span className="text-lg">{statusInfo.icon}</span>
-                                  <span className="font-medium">{statusInfo.label}</span>
-                                </>
+                                <span className="font-medium">{statusInfo.label}</span>
                               )}
                             </div>
                             <div className="text-sm text-gray-600">{event.description}</div>
                             <div className="flex gap-4 mt-1 text-xs text-gray-500">
                               <span>{formatDate(event.timestamp)}</span>
-                              {event.location && <span>📍 {event.location}</span>}
-                              {event.performedBy && <span>👤 {event.performedBy}</span>}
+                              {event.location && <span>場所: {event.location}</span>}
+                              {event.performedBy && <span>担当: {event.performedBy}</span>}
                             </div>
                           </div>
                         </div>
