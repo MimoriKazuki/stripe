@@ -13,6 +13,8 @@ export interface DBProduct {
   currency: string;
   stock: number;
   active: boolean;
+  stripeProductId?: string;
+  stripePriceId?: string;
   createdAt: string;
   updatedAt: string;
 }

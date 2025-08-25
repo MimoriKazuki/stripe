@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { stripe } from '@/lib/stripe';
 import { CartItem } from '@/lib/types';
+import { getProduct } from '@/lib/db';
 
 export async function POST(req: NextRequest) {
   try {
@@ -24,23 +25,39 @@ export async function POST(req: NextRequest) {
 
     console.log('Creating checkout session for items:', items);
 
+    // 商品ごとにStripe IDをチェック
+    const lineItems = await Promise.all(items.map(async (item) => {
+      const product = await getProduct(item.id);
+      
+      // Stripe Price IDがあれば使用、なければ動的に作成
+      if (product?.stripePriceId) {
+        return {
+          price: product.stripePriceId,
+          quantity: item.quantity,
+        };
+      } else {
+        // 既存の動的価格作成ロジック
+        return {
+          price_data: {
+            currency: item.currency,
+            product_data: {
+              name: item.name,
+              description: item.description,
+              images: [item.image],
+              metadata: {
+                productId: item.id,
+              },
+            },
+            unit_amount: item.price,
+          },
+          quantity: item.quantity,
+        };
+      }
+    }));
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: items.map((item) => ({
-        price_data: {
-          currency: item.currency,
-          product_data: {
-            name: item.name,
-            description: item.description,
-            images: [item.image],
-            metadata: {
-              productId: item.id, // 商品IDをメタデータに追加
-            },
-          },
-          unit_amount: item.price,
-        },
-        quantity: item.quantity,
-      })),
+      line_items: lineItems,
       mode: 'payment',
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}`,

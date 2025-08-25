@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import AdminLayout from '../components/AdminLayout';
-import { Edit, Trash2, Plus, AlertTriangle } from 'lucide-react';
+import { Edit, Trash2, Plus, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
 import { DBProduct } from '@/lib/db';
 
 export default function ProductsManagement() {
@@ -75,6 +75,9 @@ export default function ProductsManagement() {
                 ステータス
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Stripe同期
+              </th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 操作
               </th>
             </tr>
@@ -95,6 +98,9 @@ export default function ProductsManagement() {
                       </div>
                       <div className="text-sm text-gray-500">
                         {product.description}
+                      </div>
+                      <div className="text-xs text-gray-400">
+                        ID: {product.id}
                       </div>
                     </div>
                   </div>
@@ -165,6 +171,21 @@ export default function ProductsManagement() {
                   >
                     {product.active ? '販売中' : '停止中'}
                   </button>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="flex items-center gap-1">
+                    {product.stripeProductId ? (
+                      <>
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-xs text-green-600">同期済み</span>
+                      </>
+                    ) : (
+                      <>
+                        <XCircle className="w-4 h-4 text-gray-400" />
+                        <span className="text-xs text-gray-500">未同期</span>
+                      </>
+                    )}
+                  </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   <button className="text-red-600 hover:text-red-900">
