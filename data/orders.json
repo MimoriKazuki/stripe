@@ -1,0 +1,82 @@
+{
+  "orders": [
+    {
+      "stripeSessionId": "cs_test_a1CXNnFH40lHL1PuMjtfMxFSX9Q4tMxWelpcb6hdR7txhxYq370XniO9AE",
+      "customerEmail": "",
+      "items": [],
+      "total": 3000,
+      "status": "completed",
+      "id": "order_1756106580746",
+      "createdAt": "2025-08-25T07:23:00.746Z",
+      "updatedAt": "2025-08-25T07:23:00.746Z"
+    },
+    {
+      "stripeSessionId": "cs_test_a14FNeq2bFcv3HL6WHKr91GRWZL1DODbJ5FAVXGIkHplmS5lwPD7WMXOMj",
+      "customerEmail": "",
+      "items": [
+        {
+          "productId": "prod_1",
+          "productName": "プレミアムTシャツ",
+          "quantity": 1,
+          "price": 3500
+        }
+      ],
+      "total": 3500,
+      "status": "completed",
+      "id": "order_1756106800901",
+      "createdAt": "2025-08-25T07:26:40.901Z",
+      "updatedAt": "2025-08-25T07:26:40.901Z"
+    },
+    {
+      "stripeSessionId": "cs_test_a1A1RlqXo7ZvjDm6cJ7QylYG9FTb37MJFn07o3FeyVgkB1UDXET8lfjFPw",
+      "customerEmail": "",
+      "items": [
+        {
+          "productId": "prod_1",
+          "productName": "プレミアムTシャツ",
+          "quantity": 1,
+          "price": 3500
+        }
+      ],
+      "total": 3500,
+      "status": "completed",
+      "id": "order_1756108377317",
+      "createdAt": "2025-08-25T07:52:57.317Z",
+      "updatedAt": "2025-08-25T07:52:57.317Z"
+    },
+    {
+      "stripeSessionId": "cs_test_a1w6TW1zg6hYE4YVH4PIiH3sbvLkfd8T8uUbePL0IeEkk6u6GIMBQX7fuB",
+      "customerEmail": "",
+      "items": [
+        {
+          "productId": "prod_1",
+          "productName": "プレミアムTシャツ",
+          "quantity": 1,
+          "price": 3500
+        }
+      ],
+      "total": 3500,
+      "status": "completed",
+      "id": "order_1756108721041",
+      "createdAt": "2025-08-25T07:58:41.041Z",
+      "updatedAt": "2025-08-25T07:58:41.041Z"
+    },
+    {
+      "stripeSessionId": "cs_test_a1TBeOr9yVZNNlrhAvRXINv2zItDaY9hGXus9pWX8kDZl4nA9mZZgoqjNI",
+      "customerEmail": "",
+      "items": [
+        {
+          "productId": "prod_1",
+          "productName": "プレミアムTシャツ",
+          "quantity": 1,
+          "price": 3500
+        }
+      ],
+      "total": 3500,
+      "status": "completed",
+      "id": "order_1756109047335",
+      "createdAt": "2025-08-25T08:04:07.335Z",
+      "updatedAt": "2025-08-25T08:04:07.335Z"
+    }
+  ]
+}

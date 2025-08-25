@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": "prod_1",
+      "name": "プレミアムTシャツ",
+      "description": "高品質なコットン100%のTシャツ",
+      "price": 3500,
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500",
+      "currency": "jpy",
+      "stock": 46,
+      "active": true,
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2025-08-25T08:04:07.010Z"
+    },
+    {
+      "id": "prod_2",
+      "name": "デザイナーマグカップ",
+      "description": "オリジナルデザインのセラミックマグ",
+      "price": 2500,
+      "image": "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=500",
+      "currency": "jpy",
+      "stock": 30,
+      "active": true,
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "prod_3",
+      "name": "ノートブック",
+      "description": "A5サイズ 180ページ",
+      "price": 1800,
+      "image": "https://images.unsplash.com/photo-1516414447565-b14be0adf13e?w=500",
+      "currency": "jpy",
+      "stock": 100,
+      "active": true,
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-01T00:00:00Z"
+    },
+    {
+      "id": "prod_4",
+      "name": "エコバッグ",
+      "description": "再利用可能なショッピングバッグ",
+      "price": 1200,
+      "image": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=500",
+      "currency": "jpy",
+      "stock": 75,
+      "active": true,
+      "createdAt": "2024-01-01T00:00:00Z",
+      "updatedAt": "2024-01-01T00:00:00Z"
+    }
+  ]
+}

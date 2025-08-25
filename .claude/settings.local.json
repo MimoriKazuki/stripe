@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(npx supabase:*)",
+      "Bash(echo:*)",
+      "Bash(rm:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(npm run dev:*)",
+      "Bash(node:*)",
+      "Bash(cat:*)",
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(chmod:*)",
+      "Bash(cp:*)",
+      "Bash(claude \"テスト: Desktopディレクトリからのプロンプトが保存されるか確認\")",
+      "Bash(git commit:*)",
+      "Bash(source:*)",
+      "Bash(SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqYWxqamtjb3ZkcmFrdW5weHVnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MzI2NDE1MywiZXhwIjoyMDY4ODQwMTUzfQ.JXIhb2iYs-8bJ_fPhFzV_k3fBJA5K1NCSDOoF5tkAJI\" node check_tamogami.js)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(npm run build:*)",
+      "Bash(git config:*)",
+      "Bash(git reset:*)",
+      "Bash(curl:*)",
+      "Bash(SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqYWxqamtjb3ZkcmFrdW5weHVnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MzI2NDE1MywiZXhwIjoyMDY4ODQwMTUzfQ.JXIhb2iYs-8bJ_fPhFzV_k3fBJA5K1NCSDOoF5tkAJI\" node scripts/check_last_login.js)",
+      "Bash(npm i:*)",
+      "Bash(sed:*)",
+      "Bash(git checkout:*)",
+      "Bash(npx vercel:*)",
+      "Bash(git log:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://pjaljjkcovdrakunpxug.supabase.co\" SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqYWxqamtjb3ZkcmFrdW5weHVnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MzI2NDE1MywiZXhwIjoyMDY4ODQwMTUzfQ.JXIhb2iYs-8bJ_fPhFzV_k3fBJA5K1NCSDOoF5tkAJI\" node test-columns.js)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://pjaljjkcovdrakunpxug.supabase.co\" SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqYWxqamtjb3ZkcmFrdW5weHVnIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MzI2NDE1MywiZXhwIjoyMDY4ODQwMTUzfQ.JXIhb2iYs-8bJ_fPhFzV_k3fBJA5K1NCSDOoF5tkAJI\" node check_column_data.js)",
+      "Bash(pkill:*)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://bzezwipodgpwhhymkbkc.supabase.co\" SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6ZXp3aXBvZGdwd2hoeW1rYmtjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDI4Mjc5OCwiZXhwIjoyMDY5ODU4Nzk4fQ.GuAPslLfG_QhKuNCQyULVC111_v9fgxNQTAQxzDUBmQ\" node -e \"\nconst { createClient } = require(''@supabase/supabase-js'');\nconst bcrypt = require(''bcryptjs'');\n\nconst supabase = createClient(\n  process.env.NEXT_PUBLIC_SUPABASE_URL,\n  process.env.SUPABASE_SERVICE_ROLE_KEY\n);\n\nasync function checkUsers() {\n  const { data, error } = await supabase\n    .from(''user'')\n    .select(''*'');\n  \n  if (error) {\n    console.error(''Error:'', error);\n    return;\n  }\n  \n  console.log(''Users found:'', data?.length || 0);\n  if (data && data.length > 0) {\n    data.forEach(user => {\n      console.log({\n        email: user.email,\n        name: user.name,\n        role: user.role,\n        createdAt: user.createdAt\n      });\n    });\n  }\n}\n\ncheckUsers();\n\")",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://bzezwipodgpwhhymkbkc.supabase.co\" SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6ZXp3aXBvZGdwd2hoeW1rYmtjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDI4Mjc5OCwiZXhwIjoyMDY5ODU4Nzk4fQ.GuAPslLfG_QhKuNCQyULVC111_v9fgxNQTAQxzDUBmQ\" node reset-admin-password.js)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://bzezwipodgpwhhymkbkc.supabase.co\" SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6ZXp3aXBvZGdwd2hoeW1rYmtjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDI4Mjc5OCwiZXhwIjoyMDY5ODU4Nzk4fQ.GuAPslLfG_QhKuNCQyULVC111_v9fgxNQTAQxzDUBmQ\" node fix-admin-password.js)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://bzezwipodgpwhhymkbkc.supabase.co\" SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6ZXp3aXBvZGdwd2hoeW1rYmtjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDI4Mjc5OCwiZXhwIjoyMDY5ODU4Nzk4fQ.GuAPslLfG_QhKuNCQyULVC111_v9fgxNQTAQxzDUBmQ\" node -e \"\nconst { createClient } = require(''@supabase/supabase-js'');\n\nconst supabase = createClient(\n  process.env.NEXT_PUBLIC_SUPABASE_URL,\n  process.env.SUPABASE_SERVICE_ROLE_KEY\n);\n\nasync function checkPassword() {\n  const { data, error } = await supabase\n    .from(''user'')\n    .select(''password'')\n    .eq(''email'', ''sales@landbridge.co.jp'')\n    .single();\n  \n  if (error) {\n    console.error(''Error:'', error);\n    return;\n  }\n  \n  console.log(''Current password hash in DB:'');\n  console.log(data.password);\n}\n\ncheckPassword();\n\")",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://bzezwipodgpwhhymkbkc.supabase.co\" SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6ZXp3aXBvZGdwd2hoeW1rYmtjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDI4Mjc5OCwiZXhwIjoyMDY5ODU4Nzk4fQ.GuAPslLfG_QhKuNCQyULVC111_v9fgxNQTAQxzDUBmQ\" node reset-password-final.js)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://bzezwipodgpwhhymkbkc.supabase.co\" SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6ZXp3aXBvZGdwd2hoeW1rYmtjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDI4Mjc5OCwiZXhwIjoyMDY5ODU4Nzk4fQ.GuAPslLfG_QhKuNCQyULVC111_v9fgxNQTAQxzDUBmQ\" node -e \"\nconst { createClient } = require(''@supabase/supabase-js'');\n\nconst supabase = createClient(\n  process.env.NEXT_PUBLIC_SUPABASE_URL,\n  process.env.SUPABASE_SERVICE_ROLE_KEY\n);\n\nasync function checkUsers() {\n  const { data, error } = await supabase\n    .from(''user'')\n    .select(''*'');\n  \n  if (error) {\n    console.error(''Error:'', error);\n    return;\n  }\n  \n  console.log(''Users found:'', data?.length || 0);\n  if (data && data.length > 0) {\n    data.forEach(user => {\n      console.log({\n        email: user.email,\n        name: user.name,\n        role: user.role,\n        createdAt: user.createdAt\n      });\n    });\n  }\n}\n\ncheckUsers();\n\")",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=\"https://bzezwipodgpwhhymkbkc.supabase.co\" SUPABASE_SERVICE_ROLE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ6ZXp3aXBvZGdwd2hoeW1rYmtjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1NDI4Mjc5OCwiZXhwIjoyMDY5ODU4Nzk4fQ.GuAPslLfG_QhKuNCQyULVC111_v9fgxNQTAQxzDUBmQ\" node test-password.js)",
+      "Bash(sudo npm i -g @anthropic-ai/claude-code)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npm install)",
+      "Bash(curl:*)",
+      "Read(//var/folders/h2/bp8c5ty547qbq7vb6ng8jgy40000gq/T/TemporaryItems/NSIRD_screencaptureui_Oj7n4b/**)",
+      "Bash(brew install:*)",
+      "Bash(stripe listen:*)",
+      "Bash(stripe trigger:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(yarn add recharts)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/mimoriikki/post_prompt.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
