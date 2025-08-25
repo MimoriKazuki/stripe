@@ -23,7 +23,54 @@ import {
   History,
   ArrowRight
 } from 'lucide-react';
-import { FULFILLMENT_STATUS_DETAILS, FULFILLMENT_STATUS_FLOW, SHIPPING_CARRIERS } from '@/lib/shipping';
+// Constants that were previously imported from shipping.ts
+// Moved here to avoid fs module usage in client component
+const FULFILLMENT_STATUS_DETAILS = {
+  'unfulfilled': { label: '未処理', color: 'gray', icon: '📦' },
+  'processing': { label: '処理中', color: 'yellow', icon: '⚙️' },
+  'ready_to_ship': { label: '発送準備完了', color: 'blue', icon: '📋' },
+  'shipped': { label: '発送済み', color: 'purple', icon: '🚚' },
+  'out_for_delivery': { label: '配達中', color: 'indigo', icon: '🚛' },
+  'delivered': { label: '配達完了', color: 'green', icon: '✅' },
+  'delivery_failed': { label: '配達失敗', color: 'red', icon: '❌' },
+  'returned': { label: '返品', color: 'orange', icon: '↩️' },
+  'cancelled': { label: 'キャンセル', color: 'gray', icon: '🚫' },
+  'refunded': { label: '返金済み', color: 'gray', icon: '💰' }
+};
+
+const FULFILLMENT_STATUS_FLOW = {
+  'unfulfilled': ['processing', 'cancelled'],
+  'processing': ['ready_to_ship', 'cancelled'],
+  'ready_to_ship': ['shipped', 'cancelled'],
+  'shipped': ['out_for_delivery', 'delivered', 'returned'],
+  'out_for_delivery': ['delivered', 'delivery_failed'],
+  'delivered': ['returned'],
+  'delivery_failed': ['shipped', 'returned', 'cancelled'],
+  'returned': ['refunded'],
+  'cancelled': [],
+  'refunded': []
+};
+
+const SHIPPING_CARRIERS = {
+  'yamato': {
+    name: 'ヤマト運輸',
+    trackingUrlTemplate: 'https://toi.kuronekoyamato.co.jp/cgi-bin/tneko?init&q={tracking}',
+    estimatedDays: { standard: 2, express: 1 },
+    logo: '🐈'
+  },
+  'sagawa': {
+    name: '佐川急便',
+    trackingUrlTemplate: 'https://k2k.sagawa-exp.co.jp/p/web/okurijosearch.do?okurijoNo={tracking}',
+    estimatedDays: { standard: 3, express: 1 },
+    logo: '🚚'
+  },
+  'jppost': {
+    name: '日本郵便',
+    trackingUrlTemplate: 'https://trackings.post.japanpost.jp/services/srv/search/?requestNo1={tracking}',
+    estimatedDays: { standard: 3, express: 2 },
+    logo: '📮'
+  }
+};
 
 interface ShippingEvent {
   timestamp: string;
