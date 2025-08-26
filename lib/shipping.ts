@@ -72,7 +72,7 @@ export interface ShippingTracking {
 // 配送ステータスが有効な遷移かチェック
 export function canTransitionTo(currentStatus: string, newStatus: string): boolean {
   const allowedStatuses = FULFILLMENT_STATUS_FLOW[currentStatus as keyof typeof FULFILLMENT_STATUS_FLOW];
-  return allowedStatuses ? allowedStatuses.includes(newStatus) : false;
+  return allowedStatuses ? allowedStatuses.includes(newStatus as any) : false;
 }
 
 // 配送ステータスを更新
