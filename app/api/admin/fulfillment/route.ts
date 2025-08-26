@@ -76,7 +76,7 @@ export async function GET(req: NextRequest) {
     // 配送統計を計算
     const stats = {
       unfulfilled: orders.filter(o => o.fulfillmentStatus === 'unfulfilled').length,
-      processing: orders.filter(o => o.fulfillmentStatus === 'partially_fulfilled' || o.fulfillmentStatus === 'fulfilled').length,
+      processing: orders.filter(o => o.fulfillmentStatus === 'processing' || o.fulfillmentStatus === 'ready_to_ship').length,
       shipped: orders.filter(o => o.fulfillmentStatus === 'shipped').length,
       delivered: orders.filter(o => o.fulfillmentStatus === 'delivered').length,
       returned: orders.filter(o => o.fulfillmentStatus === 'returned').length,
