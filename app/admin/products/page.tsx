@@ -2,13 +2,23 @@
 
 import { useState, useEffect } from 'react';
 import AdminLayout from '../components/AdminLayout';
-import { Edit, Trash2, Plus, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
+import ImageUpload from '../components/ImageUpload';
+import { Edit, Trash2, Plus, AlertTriangle, CheckCircle, XCircle, X } from 'lucide-react';
 import { DBProduct } from '@/lib/db';
 
 export default function ProductsManagement() {
   const [products, setProducts] = useState<DBProduct[]>([]);
   const [editingProduct, setEditingProduct] = useState<DBProduct | null>(null);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [newProduct, setNewProduct] = useState({
+    name: '',
+    description: '',
+    price: 0,
+    stock: 0,
+    image: '',
+    currency: 'jpy',
+    active: true
+  });
 
   useEffect(() => {
     fetchProducts();
@@ -41,6 +51,30 @@ export default function ProductsManagement() {
     });
 
     if (response.ok) {
+      fetchProducts();
+    }
+  };
+
+  const handleAddProduct = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const response = await fetch('/api/admin/products', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newProduct),
+    });
+
+    if (response.ok) {
+      setShowAddForm(false);
+      setNewProduct({
+        name: '',
+        description: '',
+        price: 0,
+        stock: 0,
+        image: '',
+        currency: 'jpy',
+        active: true
+      });
       fetchProducts();
     }
   };
@@ -89,7 +123,7 @@ export default function ProductsManagement() {
                   <div className="flex items-center">
                     <img
                       className="h-10 w-10 rounded-lg object-cover"
-                      src={product.image}
+                      src={product.image || '/placeholder.png'}
                       alt={product.name}
                     />
                     <div className="ml-4">
@@ -200,52 +234,105 @@ export default function ProductsManagement() {
 
       {/* 新規商品追加フォーム（モーダル） */}
       {showAddForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 max-w-md w-full">
-            <h3 className="text-lg font-semibold mb-4">新規商品追加</h3>
-            <form
-              onSubmit={async (e) => {
-                e.preventDefault();
-                // 実装は省略
-                setShowAddForm(false);
-              }}
-            >
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-lg font-semibold">新規商品追加</h3>
+              <button
+                onClick={() => setShowAddForm(false)}
+                className="text-gray-400 hover:text-gray-600"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            
+            <form onSubmit={handleAddProduct}>
               <div className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="商品名"
-                  className="w-full px-3 py-2 border rounded-lg"
-                  required
-                />
-                <textarea
-                  placeholder="商品説明"
-                  className="w-full px-3 py-2 border rounded-lg"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="価格"
-                  className="w-full px-3 py-2 border rounded-lg"
-                  required
-                />
-                <input
-                  type="number"
-                  placeholder="在庫数"
-                  className="w-full px-3 py-2 border rounded-lg"
-                  required
-                />
-                <input
-                  type="url"
-                  placeholder="画像URL"
-                  className="w-full px-3 py-2 border rounded-lg"
-                  required
-                />
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    商品名
+                  </label>
+                  <input
+                    type="text"
+                    value={newProduct.name}
+                    onChange={(e) => setNewProduct({ ...newProduct, name: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    商品説明
+                  </label>
+                  <textarea
+                    value={newProduct.description}
+                    onChange={(e) => setNewProduct({ ...newProduct, description: e.target.value })}
+                    className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    rows={3}
+                    required
+                  />
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      価格（円）
+                    </label>
+                    <input
+                      type="number"
+                      value={newProduct.price}
+                      onChange={(e) => setNewProduct({ ...newProduct, price: parseInt(e.target.value) })}
+                      className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      min="0"
+                      required
+                    />
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      在庫数
+                    </label>
+                    <input
+                      type="number"
+                      value={newProduct.stock}
+                      onChange={(e) => setNewProduct({ ...newProduct, stock: parseInt(e.target.value) })}
+                      className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      min="0"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    商品画像
+                  </label>
+                  <ImageUpload
+                    value={newProduct.image}
+                    onChange={(url) => setNewProduct({ ...newProduct, image: url })}
+                  />
+                </div>
+                
+                <div className="flex items-center">
+                  <input
+                    type="checkbox"
+                    id="active"
+                    checked={newProduct.active}
+                    onChange={(e) => setNewProduct({ ...newProduct, active: e.target.checked })}
+                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                  />
+                  <label htmlFor="active" className="ml-2 text-sm text-gray-700">
+                    販売中にする
+                  </label>
+                </div>
               </div>
+              
               <div className="mt-6 flex justify-end gap-2">
                 <button
                   type="button"
                   onClick={() => setShowAddForm(false)}
-                  className="px-4 py-2 text-gray-600 hover:text-gray-900"
+                  className="px-4 py-2 text-gray-600 hover:text-gray-900 border border-gray-300 rounded-lg"
                 >
                   キャンセル
                 </button>
@@ -253,7 +340,7 @@ export default function ProductsManagement() {
                   type="submit"
                   className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
                 >
-                  追加
+                  商品を追加
                 </button>
               </div>
             </form>
