@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     
     // Stripeに商品を作成
-    let stripeIds = {};
+    let stripeIds: { stripeProductId?: string; stripePriceId?: string } = {};
     if (process.env.STRIPE_SECRET_KEY) {
       try {
         const stripeResult = await createStripeProduct({
