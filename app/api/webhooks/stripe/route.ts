@@ -135,7 +135,9 @@ export async function POST(req: NextRequest) {
           postal_code: customerDetails.address.postal_code || '',
           country: customerDetails.address.country || 'JP',
         } : undefined,
-        shippingOption: sessionWithDetails.shipping_options?.[0]?.shipping_rate || undefined,
+        shippingOption: typeof sessionWithDetails.shipping_options?.[0]?.shipping_rate === 'string' 
+          ? sessionWithDetails.shipping_options[0].shipping_rate 
+          : undefined,
         shippingCost: shippingCost?.amount_total || 0,
         items: orderItems,
         total: session.amount_total || 0,
