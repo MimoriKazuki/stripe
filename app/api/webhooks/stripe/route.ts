@@ -106,7 +106,7 @@ export async function POST(req: NextRequest) {
         await createOrUpdateCustomer({
           email: customerEmail,
           name: customerName,
-          phone: customerDetails?.phone,
+          phone: customerDetails?.phone || undefined,
           addresses: addresses.length > 0 ? addresses : undefined,
         });
         
